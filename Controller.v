@@ -5,7 +5,7 @@ aluSrc,memWrite,regWrite;
   output reg [2:0]aluOp;
 input[5:0] instruction ;
   input clk;
-always@(instruction)
+always@(posedge clk)
 begin
  case(instruction)
   6'b000000: begin regDst <=1; //R-Format
@@ -26,7 +26,7 @@ begin
             memRead<=0;
             memWrite<=0;
             aluSrc<=0;
-            regWrite<=0; aluOp<=3'b010;end
+            regWrite<=0; aluOp<=3'b111;end
 6'b001000: begin regDst<=0; //ADDI
             branch<=0;
             memRead<=0;
@@ -47,7 +47,8 @@ begin
             memtoReg<=0;
             memWrite<=0;
             aluSrc<=1;
-            regWrite<=1; aluOp<=3'b110; end
+            regWrite<=1;
+             aluOp<=3'b110; end
 6'b001101: begin regDst<=0; //LW
             branch<=0;
             memRead<=1;
@@ -61,7 +62,8 @@ begin
             memRead<=0;
             memWrite<=1;
             aluSrc<=1;
-            regWrite<=0; aluOp<=3'b000; end
+            regWrite<=0;
+            aluOp<=3'b000; end
 
  endcase
 end
