@@ -8,7 +8,6 @@ input clk;
 input memWrite;
 input memRead;
 
-reg [31:0] regs;
 
 always@(posedge clk)
 begin
