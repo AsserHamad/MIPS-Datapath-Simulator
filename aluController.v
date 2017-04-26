@@ -1,4 +1,4 @@
-module main(result,func,aluOp,clk);
+module aluController(result,func,aluOp,clk);
 output reg [3:0]result;
 input [5:0]func;
 input [2:0]aluOp;
@@ -22,6 +22,7 @@ case (aluOp)
 3'b110:result<=4'b0001;
 3'b001:result<=4'b0011;
 3'b111:result<=4'b0011;
+3'b000:result<=4'b0010;
 
 endcase
 endmodule
