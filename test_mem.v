@@ -10,7 +10,7 @@ reg memWrite;
 initial
 begin
   clk = 0;
-end
+  end
 
 mem test(read,clk,memWrite,memRead,address,write);
 
